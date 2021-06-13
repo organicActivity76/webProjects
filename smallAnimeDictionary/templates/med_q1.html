@@ -1,0 +1,21 @@
+{% extends "quiz_layout.html" %}
+{% block head %} 
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'med_q1.js') }}"></script>
+
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+  <img class="quizImgSize" src="https://preview.redd.it/rtkg8buoio541.jpg?width=960&crop=smart&auto=webp&s=67c4e24c4abbaf5792a518110f039314dd1a9909" alt="anime image">
+</div>
+
+<div class="quizDescription">
+A measurement of the length of a television series. A one-season series (of generally 13 weekly episodes) is described as being <span class="font-weight-bold">[term]</span>s long, while a two-season series (of generally 26 episodes) would be described as "two-<span class="font-weight-bold">[term] </span>."
+</div>
+
+
+{% endblock %}

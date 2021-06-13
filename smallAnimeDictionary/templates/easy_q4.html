@@ -1,0 +1,20 @@
+{% extends "quiz_layout.html" %}
+{% block head %} 
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'easy_q4.js') }}"></script>
+
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+  <img class="quizImgSize" src="https://pm1.narvii.com/7230/a4d4e08b94f07ed5741bddbe3e2d54179f5b0c77r1-2048-2048v2_hq.jpg" alt="anime image">
+</div>
+
+<div class="quizDescription text-center">
+  Anime and manga aimed at <span class="boldTxt text-center">boys</span>. However, many fans of this genre are not <span class="boldTxt text-center">boys</span>.
+</div>
+
+{% endblock %}

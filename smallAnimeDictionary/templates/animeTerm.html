@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block head %} 
+<script>
+  let animeTerm = {{animeTerm|tojson}}
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'animeTerm.js') }}"></script>
+<style>
+
+  #genre_list{
+    list-style: none;
+    margin: 0px;
+  }
+
+  .animeImgSize {
+    box-sizing: border-box;
+    max-width: 500px;
+  }
+
+  .defHeading {
+    font-size: 2.5rem;
+  }
+
+  .termHeadingTitle {
+    font-size: 4rem;
+  }
+
+</style>
+{% endblock %}
+{% block content %}
+
+<h1 class='text-center mb-3 termHeadingTitle'>What does <span class="boldTxt">{{animeTerm.title}}</span> mean?</h1>
+
+<div id='termInfo_container' class='row my-5'></div>
+
+
+
+
+{% endblock %}

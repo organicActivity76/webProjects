@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Small Anime Dictionary</title>
+
+ <!-- JQuery -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- bootstrap same as before -->
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'layout.js') }}"></script>
+
+<script>
+  let anime_db = {{anime_db|tojson}} 
+</script>
+
+{% block head %} {% endblock %}
+ 
+</head>
+
+<style>
+  .imgLinkCursor {
+    cursor: pointer;
+  }
+
+  .term_bg1 {
+    background-color: #9fb4df;
+  }
+  
+  .term_bg2 {
+    background-color: #c6d2ec;
+  }
+
+  .termBtn {
+    width: 275px;
+  }
+
+  .boldTxt {
+    font-weight: bold;
+  }
+
+  .quizTxtSize {
+    font-size: 2.2rem;
+  }
+
+</style>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">AnimeNavBar</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navBarID">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBarID">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/easy_q1">Beginner Quiz</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/med_q1">Intermediate Quiz</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/hard_q1">Hard Quiz</a>
+                </li> 
+          </ul>
+
+            <div class="form-inline ml-auto">
+                <input type="text" class="form-control mr-2" id='search_entry' placeholder="Enter Term">
+                <button id='searchBtn' class="btn btn-outline-success">Search</button>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% block content %}{% endblock %}
+    <h2 class='text-center'>Anime Lexicon</h2>
+    <h5 class='text-center'>Take a one of the <span class ="boldTxt">quizzes below</span> to test your Anime Knowledge</h5>
+    <h5 class='text-center quizTxtSize'><a href="/easy_q1">Beginner Quiz</a>, <a href="/med_q1">Intermediate Quiz</a>, <a href="/hard_q1">Advanced Quiz</a></h5>  
+    <h5 class='text-center'>or</h5>
+    <p class='text-center text-muted'><span class='font-weight-bold'>Click</span> on the <span class='font-weight-bold'>Term</span> below to learn more</p>
+    <div id="terms_container" class='row mt-4'></div>
+  </div>
+</body>
+</html>

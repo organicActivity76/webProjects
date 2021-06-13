@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block head %} 
+<script>
+  let searchQuery = {{searchQuery|tojson}}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+
+
+<style>
+  .resultFormat {
+    font-style: italic;
+    font-size: 1.6rem;
+  }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<h1>You searched for '{{searchQuery}}'</h1>
+
+<div id="resultsNumContainer"></div>
+
+<div id="results_container" class="row"></div> 
+
+{% endblock %}

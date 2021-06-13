@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block head %} 
+<style>
+  .missionStmt {
+    font-size: 1.5rem;
+  }
+
+  .homeBg {
+    background-color: lightskyblue;
+  }
+
+  .homeFontColor {
+    color: #222;
+  }
+
+  .homeImgSize {
+    max-height: 100px;
+  }
+</style>
+
+
+<script>
+  let score = {{score|tojson}} 
+</script>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_results.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<h1 class='text-center'>Results of Quiz</h1>
+<h4 class='text-center'><span class="text-muted">You answered </span><span class="font-weight-bold">{{score}} </span> <span class="text-muted"> of </span><span class="font-weight-bold">5 questions</span> <span class="text-muted"> correctly</span></h4>
+
+<div class="text-center my-4">
+  <img src="https://www.anime-planet.com/images/characters/female-teacher-gourmet-girl-graffiti-179927.jpg?t=1577649994" alt="">
+</div>
+
+
+{% endblock %}

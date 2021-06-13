@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block head %} 
+<style>
+  .missionStmt {
+    font-size: 1.5rem;
+  }
+
+  .homeBg {
+    background-color: lightskyblue;
+  }
+
+  .homeFontColor {
+    color: #222;
+  }
+
+  .homeImgSize {
+    max-height = 100px;
+  }
+</style>
+
+
+<!-- <script>
+  let anime_db = {{anime_db|tojson}} 
+</script>
+ -->
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class='text-center'>Small Anime Dictionary</h1>
+<p class='text-center missionStmt'>Learn terms anime fans and reviewers use when talking about anime and anime culture.</p>
+
+<!-- <p class="lead text-center mb-3 missionStmt">This site is to help users learn terms that are ubiquitious in anime discussions amongst fans and anime news</p> -->
+
+<div class="text-center mb-4">
+  <img src="https://upload.wikimedia.org/wikipedia/en/3/3f/The_Great_Passage_-_Anime_Visual.jpg" alt="">
+</div>
+
+
+{% endblock %}

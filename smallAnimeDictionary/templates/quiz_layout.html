@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Anime Dictionary</title>
+
+ <!-- JQuery -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- bootstrap same as before -->
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_layout.js') }}"></script>
+
+<script>
+  let anime_db = {{anime_db|tojson}} 
+</script>
+
+{% block head %} {% endblock %}
+ 
+</head>
+
+<style>
+  .imgLinkCursor {
+    cursor: pointer;
+  }
+
+  .quizHeading {
+    font-size: 3rem;
+  }
+
+  body {
+    background-color: powderblue;
+  }
+
+  #writeTerm {
+    width: 300px;
+  }
+
+  .lightTxt {
+    color: darkgrey;
+  }
+
+  .bigTxt {
+    font-size: 1.2rem;
+  }
+
+  .badInput {
+    color: red;
+  }
+
+  .incorrectFormat {
+    color: red;
+  }
+
+  .correctFormat {
+    color: green;
+  }
+
+  .quizImgSize {
+    box-sizing: border-box;
+    max-width: 500px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .quizDescription {
+    font-size: 1.5rem;
+    background-color: #facd3d;
+    padding: 1rem;
+  }
+
+  .form-inline {
+    margin: auto;
+  }
+
+  .term_bg1 {
+    background-color: #9fb4df;
+  }
+  
+  .term_bg2 {
+    background-color: #c6d2ec;
+  }
+  
+  .boldTxt {
+    font-weight: bold;
+  }
+
+  .termBtn {
+    width: 275px;
+  }
+
+</style>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">AnimeNavBar</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navBarID">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBarID">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/easy_q1">Beginner Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/med_q1">Intermediate Quiz</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/hard_q1">Hard Quiz</a>
+                </li> 
+          </ul>
+
+            <div class="form-inline ml-auto">
+                <input type="text" class="form-control mr-2" id='search_entry' placeholder="Enter Term">
+                <button id='searchBtn' class="btn btn-outline-success">Search</button>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div id="quizTitleContainer" class="text-center"></div>
+
+    <div id="questionPositionContainer" class="text-center mb-4"></div>
+
+    <div id="quizQuestionContainer" class="text-center"></div>
+
+    <div id="submitQuizBtnContainer" class="text-center mt-3"></div>
+    <div id="submitError" class="badInput text-center"></div>
+
+    <div id="hintContainer" class="text-center mt-2"></div>
+    <div id="hintMsgContainer" class="text-center mt-1"></div>
+
+
+    <div id="userSeeInputContainer"></div>
+    <div id="correctContainer"></div>
+    <div id="incorrectContainer"></div>
+
+    <div id="nextQuestionContainer" class="text-center mt-3"></div>
+    <div id="seeResultsContainer" class="text-center"></div>
+
+    {% block content %}{% endblock %}
+    <h2 class='text-center mt-5'>Anime Lexicon</h2>
+    <p class='text-center text-muted'><span class='font-weight-bold'>Click</span> on the <span class='font-weight-bold'>Term</span> below to learn more</p>
+    <div id="terms_container" class='row mt-4'></div>
+  </div>
+</body>
+</html>

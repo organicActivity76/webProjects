@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block head %} 
+
+<style>
+
+  #seeCreationBtn {
+    font-size: 3rem;
+  }
+
+  .badInput {
+    color: red;
+  }
+</style>
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+{% endblock %}
+{% block content %}
+<div id='headerSuccessContainer'></div>
+
+<h1>Create New Entry</h1>
+
+  <div>
+    <label for="writeTitle">Title</label>
+    <input class="form-control" type="text" id="writeTitle" placeholder="Enter name" required>
+    <div id="titleError" class='badInput'></div>
+  </div>
+  <br>
+
+  <div>
+    <label for="writeImg">Image</label>
+    <input class="form-control" type="text" id="writeImg" placeholder="Enter img that ends in '.jpg'" required>
+    <div id="imgError" class='badInput'></div>
+  </div>
+  <br>
+
+  <div>
+    <label for="writeSummary">Summary</label>
+    <textarea class="form-control" id="writeSummary" rows="3" required></textarea>
+    <div id="summaryError" class='badInput'></div>
+  </div>
+  <br>
+
+  <div>
+    <label for="writeScore">Score</label>
+    <input class="form-control" type="text" id="writeScore" placeholder="Enter Score" required>
+    <div id="scoreError" class='badInput'></div>
+  </div>
+  <br>
+
+  <div>
+    <label for="writeGenres">Genres</label>
+    <input class = 'form-control' type="text" id="writeGenres" placeholder="Enter Genres like this: 'genre1,genre2,genre3'" required>
+    <div id="genresError" class='badInput'></div>
+  </div>
+  <br>
+
+  <button id='submit_btn' class="btn btn-primary btn-block" type="submit">Submit</button>
+
+<div id="LinkSuccessContainer"></div>
+
+
+
+
+<div><a href="/">Go back to homepage</a></div>
+
+{% endblock %}
